@@ -18,4 +18,9 @@ class ReturnType
         return $this->message;
     }
 
+    public function setMessage(String $message): self {
+        $this->message = $message;
+        return $this;
+    }
+
 }

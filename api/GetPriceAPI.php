@@ -2,4 +2,7 @@
 
 class GetPriceAPI extends AbstractAPI {
 
+
+
+
 }

@@ -7,20 +7,31 @@ abstract class AbstractAPI
 
     private array $fields;
 
-    public function __construct($fields) {
+    private array $essentialFieldKeys = ["api"];
+
+    public function __construct($fields)
+    {
         $this->fields = $fields;
     }
 
-    public function fieldsCheck(): bool {
-        return true;
+    /**
+     * @throws MissingFieldException
+     */
+    public function fieldsCheck(): void
+    {
+        foreach ($this->essentialFieldKeys as $key) {
+            if (!array_key_exists($key)) throw new MissingFieldException($key);
+        }
     }
 
-    public function run() {
-
+    public function run(): self
+    {
+        return $this;
     }
 
-    public function getReturnValue() {
-
+    public function getReturnValue(): self
+    {
+        return $this;
     }
 
 }
